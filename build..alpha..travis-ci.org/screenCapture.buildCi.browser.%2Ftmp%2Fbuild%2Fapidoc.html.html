@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/tjwebb/sails-auth"
-
-    >sails-auth (v2.1.3)</a>
+    <a href="https://github.com/tjwebb/sails-auth">sails-auth (v2.1.3)</a>
 </h1>
 <h4>Passport-based User Authentication system for sails.js applications.</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.sails-auth">module sails-auth</a><ol>
 
@@ -419,14 +412,14 @@
   var hook = new Hook(sails);
   hook.loadConfig(Hook.constructor.name);
 
-  var config = _lodash2[&#x27;default&#x27;].defaults({}, Marlinspike.defaultConfig());
-  if (hook.name in sails.config) _lodash2[&#x27;default&#x27;].extend(config.marlinspike, sails.config[hook.name].marlinspike);
+  var config = _lodash2['default'].defaults({}, Marlinspike.defaultConfig());
+  if (hook.name in sails.config) _lodash2['default'].extend(config.marlinspike, sails.config[hook.name].marlinspike);
 
   return {
     name: _this.name,
     routes: hook.routes(),
     defaults: function defaults(overrides) {
-      return _lodash2[&#x27;default&#x27;].merge(config, hook.defaults(overrides));
+      return _lodash2['default'].merge(config, hook.defaults(overrides));
     },
     configure: function configure() {
       if (config.marlinspike.services) hook.loadServices();
@@ -435,12 +428,12 @@
       if (config.marlinspike.policies) hook.loadPolicies();
 
       hook.configure();
-      sails.emit(&#x27;hook:&#x27; + hook.name + &#x27;:configured&#x27;);
+      sails.emit('hook:' + hook.name + ':configured');
     },
     initialize: function initialize(next) {
 
       hook.initialize(function () {
-        sails.emit(&#x27;hook:&#x27; + hook.name + &#x27;:initialized&#x27;);
+        sails.emit('hook:' + hook.name + ':initialized');
         next();
       });
     }
@@ -470,13 +463,13 @@
   // Customize the `reason` based on the # of invalid attributes
   // (`reason` may not be overridden)
   var isSingular = this.length === 1;
-  this.reason = util.format(&#x27;%d attribute%s %s invalid&#x27;,
+  this.reason = util.format('%d attribute%s %s invalid',
     this.length,
-    isSingular ? &#x27;&#x27; : &#x27;s&#x27;,
-    isSingular ? &#x27;is&#x27; : &#x27;are&#x27;);
+    isSingular ? '' : 's',
+    isSingular ? 'is' : 'are');
 
-  // Always apply the &#x27;E_VALIDATION&#x27; error code, even if it was overridden.
-  this.code = &#x27;E_VALIDATION&#x27;;
+  // Always apply the 'E_VALIDATION' error code, even if it was overridden.
+  this.code = 'E_VALIDATION';
 
   // Status may be overridden.
   this.status = properties.status || 400;
@@ -491,7 +484,7 @@
           }
 
           // Remove all elements but the message
-          _.forEach(_.without(_.keys(i), &#x27;message&#x27;), function(key) {
+          _.forEach(_.without(_.keys(i), 'message'), function(key) {
             delete i[key];
           })
 
@@ -538,17 +531,17 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">callback = function (req, res) {
-  var action = req.param(&#x27;action&#x27;);
+  var action = req.param('action');
 
   function negotiateError (err) {
-    if (action === &#x27;register&#x27;) {
-      res.redirect(&#x27;/register&#x27;);
+    if (action === 'register') {
+      res.redirect('/register');
     }
-    else if (action === &#x27;login&#x27;) {
-      res.redirect(&#x27;/login&#x27;);
+    else if (action === 'login') {
+      res.redirect('/login');
     }
-    else if (action === &#x27;disconnect&#x27;) {
-      res.redirect(&#x27;back&#x27;);
+    else if (action === 'disconnect') {
+      res.redirect('back');
     }
     else {
       // make sure the server always returns a response to the client
@@ -575,10 +568,10 @@
       // `next` query param
       if (req.query.next) {
         var url = sails.services.authservice.buildCallbackNextUrl(req);
-        res.status(302).set(&#x27;Location&#x27;, url);
+        res.status(302).set('Location', url);
       }
 
-      sails.log.info(&#x27;user&#x27;, user, &#x27;authenticated successfully&#x27;);
+      sails.log.info('user', user, 'authenticated successfully');
       return res.json(user);
     });
   });
@@ -644,7 +637,7 @@ req.login(user, function (err) {
   req.session.authenticated = false;
 
   if (!req.isSocket) {
-    res.redirect(req.query.next || &#x27;/&#x27;);
+    res.redirect(req.query.next || '/');
   }
   else {
     res.ok();
@@ -664,7 +657,7 @@ delete req.session.passport;
 req.session.authenticated = false;
 
 if (!req.isSocket) {
-  res.redirect(req.query.next || &#x27;/&#x27;);
+  res.redirect(req.query.next || '/');
 }
 ...</pre></li>
     </ul>
@@ -701,10 +694,10 @@ if (!req.isSocket) {
     <li>description and source-code<pre class="apidocCodePre">buildCallbackNextUrl = function (req) {
   var url = req.query.next;
   var includeToken = req.query.includeToken;
-  var accessToken = _.get(req, &#x27;session.tokens.accessToken&#x27;);
+  var accessToken = _.get(req, 'session.tokens.accessToken');
 
-  if (includeToken &#x26;&#x26; accessToken) {
-    return url + &#x27;?access_token=&#x27; + accessToken;
+  if (includeToken &amp;&amp; accessToken) {
+    return url + '?access_token=' + accessToken;
   }
   else {
     return url;
@@ -719,10 +712,10 @@ if (!req.isSocket) {
     // `next` query param
     if (req.query.next) {
       var url = sails.services.authservice.<span class="apidocCodeKeywordSpan">buildCallbackNextUrl</span>(req);
-      res.status(302).set(&#x27;Location&#x27;, url);
+      res.status(302).set('Location', url);
     }
 
-    sails.log.info(&#x27;user&#x27;, user, &#x27;authenticated successfully&#x27;);
+    sails.log.info('user', user, 'authenticated successfully');
     return res.json(user);
   });
 });
@@ -792,13 +785,13 @@ if (!req.isSocket) {
   // Customize the `reason` based on the # of invalid attributes
   // (`reason` may not be overridden)
   var isSingular = this.length === 1;
-  this.reason = util.format(&#x27;%d attribute%s %s invalid&#x27;,
+  this.reason = util.format('%d attribute%s %s invalid',
     this.length,
-    isSingular ? &#x27;&#x27; : &#x27;s&#x27;,
-    isSingular ? &#x27;is&#x27; : &#x27;are&#x27;);
+    isSingular ? '' : 's',
+    isSingular ? 'is' : 'are');
 
-  // Always apply the &#x27;E_VALIDATION&#x27; error code, even if it was overridden.
-  this.code = &#x27;E_VALIDATION&#x27;;
+  // Always apply the 'E_VALIDATION' error code, even if it was overridden.
+  this.code = 'E_VALIDATION';
 
   // Status may be overridden.
   this.status = properties.status || 400;
@@ -813,7 +806,7 @@ if (!req.isSocket) {
           }
 
           // Remove all elements but the message
-          _.forEach(_.without(_.keys(i), &#x27;message&#x27;), function(key) {
+          _.forEach(_.without(_.keys(i), 'message'), function(key) {
             delete i[key];
           })
 
@@ -990,7 +983,7 @@ exports.createUser = function (_user, next) {
     if (err) {
 sails.log(err);
 
-if (err.code === &#x27;E_VALIDATION&#x27;) {
+if (err.code === 'E_VALIDATION') {
   return next(new SAError({originalError: err}));
 }
 ...</pre></li>
@@ -1026,7 +1019,7 @@ if (err.code === &#x27;E_VALIDATION&#x27;) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">basic = function (req, username, password, next) {
-  sails.log(&#x27;using basic auth strategy for user&#x27;, username, &#x27;, password&#x27;, password);
+  sails.log('using basic auth strategy for user', username, ', password', password);
 
   return localProtocol.login(req, username, password, next);
 }</pre></li>
@@ -1045,7 +1038,7 @@ if (err.code === &#x27;E_VALIDATION&#x27;) {
     <li>description and source-code<pre class="apidocCodePre">oauth = function (req, token, tokenSecret, profile, next) {
   var query    = {
       identifier : profile.id
-    , protocol   : &#x27;oauth&#x27;
+    , protocol   : 'oauth'
     , tokens     : { token: token }
     };
 
@@ -1070,7 +1063,7 @@ if (err.code === &#x27;E_VALIDATION&#x27;) {
     <li>description and source-code<pre class="apidocCodePre">oauth2 = function (req, accessToken, refreshToken, profile, next) {
   var query = {
     identifier: profile.id,
-    protocol: &#x27;oauth2&#x27;,
+    protocol: 'oauth2',
     tokens: { accessToken: accessToken }
   };
 
@@ -1095,7 +1088,7 @@ if (err.code === &#x27;E_VALIDATION&#x27;) {
     <li>description and source-code<pre class="apidocCodePre">openid = function (req, identifier, profile, next) {
   var query    = {
     identifier : identifier
-  , protocol   : &#x27;openid&#x27;
+  , protocol   : 'openid'
   };
 
   sails.services.passport.connect(req, query, profile, next);
@@ -1121,11 +1114,11 @@ if (err.code === &#x27;E_VALIDATION&#x27;) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">connect = function (req, res, next) {
   var user     = req.user
-    , password = req.param(&#x27;password&#x27;)
+    , password = req.param('password')
     , Passport = sails.models.passport;
 
   Passport.findOne({
-    protocol : &#x27;local&#x27;
+    protocol : 'local'
   , user     : user.id
   }, function (err, passport) {
     if (err) {
@@ -1134,7 +1127,7 @@ if (err.code === &#x27;E_VALIDATION&#x27;) {
 
     if (!passport) {
       Passport.create({
-        protocol : &#x27;local&#x27;
+        protocol : 'local'
       , password : password
       , user     : user.id
       }, function (err, passport) {
@@ -1176,7 +1169,7 @@ if (err.code === &#x27;E_VALIDATION&#x27;) {
     if (err) {
       sails.log(err);
 
-      if (err.code === &#x27;E_VALIDATION&#x27;) {
+      if (err.code === 'E_VALIDATION') {
         return next(new SAError({originalError: err}));
       }
 
@@ -1184,12 +1177,12 @@ if (err.code === &#x27;E_VALIDATION&#x27;) {
     }
 
     sails.models.passport.create({
-      protocol : &#x27;local&#x27;
+      protocol : 'local'
     , password : password
     , user     : user.id
     }, function (err, passport) {
       if (err) {
-        if (err.code === &#x27;E_VALIDATION&#x27;) {
+        if (err.code === 'E_VALIDATION') {
           err = new SAError({originalError: err});
         }
 
@@ -1249,16 +1242,16 @@ if (err.code === &#x27;E_VALIDATION&#x27;) {
 
     if (!user) {
       if (isEmail) {
-        req.flash(&#x27;error&#x27;, &#x27;Error.Passport.Email.NotFound&#x27;);
+        req.flash('error', 'Error.Passport.Email.NotFound');
       } else {
-        req.flash(&#x27;error&#x27;, &#x27;Error.Passport.Username.NotFound&#x27;);
+        req.flash('error', 'Error.Passport.Username.NotFound');
       }
 
       return next(null, false);
     }
 
     sails.models.passport.findOne({
-      protocol : &#x27;local&#x27;
+      protocol : 'local'
     , user     : user.id
     }, function (err, passport) {
       if (passport) {
@@ -1268,7 +1261,7 @@ if (err.code === &#x27;E_VALIDATION&#x27;) {
           }
 
           if (!res) {
-            req.flash(&#x27;error&#x27;, &#x27;Error.Passport.Password.Wrong&#x27;);
+            req.flash('error', 'Error.Passport.Password.Wrong');
             return next(null, false);
           } else {
             return next(null, user, passport);
@@ -1276,7 +1269,7 @@ if (err.code === &#x27;E_VALIDATION&#x27;) {
         });
       }
       else {
-        req.flash(&#x27;error&#x27;, &#x27;Error.Passport.Password.NotSet&#x27;);
+        req.flash('error', 'Error.Passport.Password.NotSet');
         return next(null, false);
       }
     });
@@ -1340,3 +1333,4 @@ me: function (req, res) {
     ]
 </div>
 </div>
+</body></html>
