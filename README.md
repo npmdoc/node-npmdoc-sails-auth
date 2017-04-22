@@ -1,9 +1,14 @@
-# api documentation for  [sails-auth (v2.1.3)](https://github.com/tjwebb/sails-auth)  [![npm package](https://img.shields.io/npm/v/npmdoc-sails-auth.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-sails-auth) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-sails-auth.svg)](https://travis-ci.org/npmdoc/node-npmdoc-sails-auth)
+# npmdoc-sails-auth
+
+#### api documentation for  [sails-auth (v2.1.3)](https://github.com/tjwebb/sails-auth)  [![npm package](https://img.shields.io/npm/v/npmdoc-sails-auth.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-sails-auth) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-sails-auth.svg)](https://travis-ci.org/npmdoc/node-npmdoc-sails-auth)
+
 #### Passport-based User Authentication system for sails.js applications.
 
-[![NPM](https://nodei.co/npm/sails-auth.png?downloads=true)](https://www.npmjs.com/package/sails-auth)
+[![NPM](https://nodei.co/npm/sails-auth.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/sails-auth)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-sails-auth/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-sails-auth_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-sails-auth/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-sails-auth/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-sails-auth/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-sails-auth/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-sails-auth/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-sails-auth/build/screenCapture.npmPackageListing.svg)
 
@@ -17,8 +22,7 @@
 
 {
     "author": {
-        "name": "Travis Webb",
-        "email": "me@traviswebb.com"
+        "name": "Travis Webb"
     },
     "bugs": {
         "url": "https://github.com/tjwebb/sails-auth/issues"
@@ -82,25 +86,20 @@
     "main": "dist/api/hooks/auth/index.js",
     "maintainers": [
         {
-            "name": "balderdash",
-            "email": "hello@balderdash.io"
+            "name": "balderdash"
         },
         {
-            "name": "ryanwilliamquinn",
-            "email": "ryanwilliamquinn@gmail.com"
+            "name": "ryanwilliamquinn"
         },
         {
-            "name": "sailsjs",
-            "email": "sailsjs@balderdash.io"
+            "name": "sailsjs"
         },
         {
-            "name": "tjwebb",
-            "email": "me@traviswebb.com"
+            "name": "tjwebb"
         }
     ],
     "name": "sails-auth",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git://github.com/tjwebb/sails-auth.git"
@@ -113,19 +112,10 @@
         "prepublish": "gulp",
         "test": "mocha --reporter spec --compilers js:babel/register"
     },
-    "version": "2.1.3"
+    "version": "2.1.3",
+    "bin": {}
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module sails-auth](#apidoc.module.sails-auth)
-
-
-
-# <a name="apidoc.module.sails-auth"></a>[module sails-auth](#apidoc.module.sails-auth)
 
 
 
